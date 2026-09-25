@@ -1,0 +1,9 @@
+# Vì sao chọn lô này?
+
+Nếu chỉ có ngân sách rà năm ảnh, tôi ưu tiên `frame_0182.jpg` ở thời điểm 72,8 giây (hạng 1, điểm 0.9591), `frame_0369.jpg` ở 147,6 giây (hạng 2, điểm 0.9324), `frame_0380.jpg` ở 152,0 giây (hạng 3, điểm 0.9170), `frame_0326.jpg` ở 130,4 giây (hạng 4, điểm 0.9155) và `frame_0331.jpg` ở 132,4 giây (hạng 5, điểm 0.9154). Đây là năm ảnh có điểm cao nhất trong danh sách. Chúng có nhiều dự đoán mơ hồ hoặc độ bất định cao, nên đáng ưu tiên rà khi thời gian có hạn. `frame_0326.jpg` và `frame_0331.jpg` cách nhau đúng 2 giây, vừa đủ điều kiện khoảng cách tối thiểu của lô.
+
+Ba ảnh thuộc lô 12 ảnh model chọn là `frame_0182.jpg`, `frame_0369.jpg` và `frame_0187.jpg`; cả ba đều có `selected=True` trong CSV. `frame_0182.jpg` đứng hạng 1, điểm 0.9591, có 28 box dự đoán và 18 box mơ hồ. `frame_0369.jpg` đứng hạng 2, điểm 0.9324, có 43 box dự đoán và 16 box mơ hồ. `frame_0187.jpg` đứng hạng 10, điểm 0.8995, có 39 box dự đoán và 17 box mơ hồ. Ảnh contact sheet cho thấy các cảnh này có nhiều xe ở khoảng cách và kích thước khác nhau, trong đó xe xa và xe sát mép ảnh cần được kiểm tra kỹ.
+
+`frame_0372.jpg` đứng hạng 6 với điểm 0.9101 nhưng có `selected=False`. Ảnh này ở thời điểm 148,8 giây, chỉ cách `frame_0369.jpg` ở 147,6 giây khoảng 1,2 giây, thấp hơn `MIN_GAP_S = 2.0`. Hai ảnh gần nhau có cảnh gần trùng lặp, nên model giữ `frame_0369.jpg` và bỏ qua `frame_0372.jpg` để tránh tốn công rà hai ảnh cung cấp ít thông tin mới.
+
+Điểm chọn mẫu cao chỉ cho biết model đang phân vân, có nhiều box mơ hồ hoặc ảnh đáp ứng tiêu chí đa dạng theo thời gian. Điểm này không chứng minh nhãn gợi ý là đúng và cũng không bảo đảm rằng sửa ảnh rồi fine-tune sẽ làm chất lượng phát hiện tăng. Muốn kết luận, vẫn phải rà nhãn bằng mắt và so sánh kết quả trên cùng tập kiểm thử sau khi huấn luyện.

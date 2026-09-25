@@ -1,0 +1,4 @@
+round,frame_id,object,action,rule_or_reason
+1,frame_0187.jpg,xe đi về phía camera ở nửa dưới gần giữa bên trái,added,Thân xe và cặp đèn nhìn rõ nhưng pre-label không có box
+1,frame_0187.jpg,xe bị cắt tại mép phải,edited,Chỉnh box ôm phần xe còn nhìn thấy và không kéo ra ngoài ảnh
+1,frame_0187.jpg,xe lớn gần mép dưới giữa ảnh,accepted,Khung AI đã ôm sát phần thân xe nhìn thấy nên giữ nguyên
